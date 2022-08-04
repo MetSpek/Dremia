@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Styles/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Player/UI/PauseMenu.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="Control" groups=["PauseMenu"]]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -172.0
+margin_right = 87.0
+margin_bottom = 172.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 174.0
+margin_bottom = 40.0
+text = "PAUSED"
+align = 1
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+margin_top = 70.0
+margin_right = 174.0
+margin_bottom = 116.0
+text = "Resume"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+margin_top = 146.0
+margin_right = 174.0
+margin_bottom = 192.0
+disabled = true
+text = "Options"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+margin_top = 222.0
+margin_right = 174.0
+margin_bottom = 268.0
+disabled = true
+text = "Main Menu"
+
+[node name="Exit Game" type="Button" parent="VBoxContainer"]
+margin_top = 298.0
+margin_right = 174.0
+margin_bottom = 344.0
+text = "Exit Game"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_Exit_Game_pressed"]
